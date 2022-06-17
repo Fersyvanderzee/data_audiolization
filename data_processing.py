@@ -1,18 +1,18 @@
-# Processes the data set to an array in order to convert to pitches
-def data_processing(data_set):
-    values = []
-    for val in data_set:
-        values.append(val)
-    return values
+import numpy as np
 
 
 # Converts the data set to a general factor to divide or multiply with
-def convert_to_factor(data_set_to_convert, min_pitch, max_pitch):
-    val_factor = 0
+def data_processing(data_set_to_convert, allowed_notes):
+    mean = np.mean(data_set_to_convert)
+    factor = mean / len(allowed_notes)
+    values = []
+
     for val in data_set_to_convert:
-        val_factor = val_factor + (val / min_pitch)
-        val_factor = val_factor + (val / max_pitch)
-    factor = val_factor / len(data_set_to_convert * 2)
-    return factor
+        value = val / factor
+        if value > len(allowed_notes):
+            value = len(allowed_notes)
+        elif value < 0:
+            value = 0
+        values.append(round(value))
 
-
+    return values

@@ -22,9 +22,12 @@ pitches = {
 
 
 # Converts the value to a pitch
-def convert_pitch(note_to_convert):
-    pitch_val = pitches[note_to_convert]
-    return pitch_val
+def convert_pitch(notes):
+    pitches_set = []
+    for note in notes:
+        pitch_val = pitches[note]
+        pitches_set.append(pitch_val)
+    return pitches_set
 
 
 # Converts the value to the nearest pitch.

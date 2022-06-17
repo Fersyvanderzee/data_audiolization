@@ -28,3 +28,10 @@ def return_scale(root_note, mode):
         notes_in_scale.append(note_dict[count])
     return notes_in_scale
 
+
+def return_notes(scale, values_set):
+    notes = []
+    for value in values_set:
+        note = scale[value-1]
+        notes.append(note)
+    return notes

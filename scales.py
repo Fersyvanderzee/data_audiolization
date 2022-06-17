@@ -28,6 +28,3 @@ def return_scale(root_note, mode):
         notes_in_scale.append(note_dict[count])
     return notes_in_scale
 
-
-def return_closest_pitch(pitches_to_allow, pitch):
-    return min(pitches_to_allow, key=lambda x: abs(x - pitch))

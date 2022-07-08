@@ -15,9 +15,9 @@ df = pd.DataFrame(data=data)
 
 scale = scales.return_scale('A', 'Major')
 
-data_set = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_processing(df['est_diameter_min'], scale)))
-data_set2 = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_processing(df['miss_distance'], scale)))
-data_set3 = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_processing(df['relative_velocity'], scale)))
+data_set = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_to_note_processing(df['est_diameter_min'], scale)))
+data_set2 = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_to_note_processing(df['miss_distance'], scale)))
+data_set3 = pitches.convert_pitch(scales.return_notes(scale, data_processing.data_to_note_processing(df['relative_velocity'], scale)))
 
 
 create_midi_file.Midifile(data_set=data_set, bpm=80, duration=2, track_name='Test1')

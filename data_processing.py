@@ -17,7 +17,19 @@ def data_to_note_processing(data_set_to_convert, allowed_notes):
 
     return values
 
+
+#Does not work yet!
 def data_to_duration_processing(data_set_to_convert):
-    mean = np.mean(data_set_to_convert)
-    value =
+    durations = []
+    max_val = max(data_set_to_convert)
+    min_val = min(data_set_to_convert)
+    for val in data_set_to_convert:
+        if val < (max_val * 0.33):
+            duration = 2
+        elif (max_val * 0.33) < val < (max_val * 0.66):
+            duration = 4
+        else:
+            duration = 8
+        durations.append(duration)
+    return durations
 
